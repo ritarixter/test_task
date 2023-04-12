@@ -1,0 +1,30 @@
+.app {
+  background-color: #000;
+  font-family: "Inter", "Arial", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.cards {
+  margin: 0;
+  list-style: none;
+  justify-content: center;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(282px, max-content));
+  grid-row-gap: 20px;
+  grid-column-gap: 17px;
+}
+
+@media screen and (max-width: 1023px) {
+  .cards {
+    grid-template-columns: repeat(2, minmax(282px, max-content));
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .cards {
+    grid-template-columns: minmax(282px, max-content);
+  }
+}

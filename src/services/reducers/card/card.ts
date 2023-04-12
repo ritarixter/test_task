@@ -1,26 +1,27 @@
+import { SET_CARDS, SET_ERROR } from "../../actions/card/card";
 
-type TOrderInitialState = {
-  orderNumber: number | null;
-  orderRequest: boolean;
-  orderFailed: boolean;
-  orderOpen: boolean;
-  orderClearIngredient: boolean;
+type TCardsInitialState = {
+  cards: Array<any>;
+  isError: boolean;
+  //isLoading: boolean;
 };
 
-const orderInitialState: TOrderInitialState = {
-  orderNumber: null,
-  orderRequest: false,
-  orderFailed: false,
-  orderOpen: false,
-  orderClearIngredient: false,
+const cardsInitialState: TCardsInitialState = {
+  cards: [],
+  isError: false
+  //isLoading: false
 };
 
 export const cardReducer = (
-  state = orderInitialState,
+  state = cardsInitialState,
   action: any
-): TOrderInitialState => {
+): TCardsInitialState => {
   switch (action.type) {
-
+    case SET_CARDS:
+      return {...state, cards: action.payload, isError: false}
+    case SET_ERROR:
+      return {...state, isError:true}
+    
     default: {
       return state;
     }
